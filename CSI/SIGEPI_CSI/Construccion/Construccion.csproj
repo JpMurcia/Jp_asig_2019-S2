@@ -147,6 +147,11 @@
     <Content Include="App_Readme\Ext.NET\README.md" />
     <Content Include="App_Readme\Ext.NET\LICENSE" />
     <Content Include="App_Readme\Ext.NET\CHANGELOG.md" />
+    <Content Include="pdf\1.pdf" />
+    <Content Include="pdf\2.pdf" />
+    <Content Include="pdf\3.pdf" />
+    <Content Include="pdf\4.pdf" />
+    <Content Include="pdf\5.pdf" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -180,6 +185,11 @@
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Views\Login\Default.aspx" />
     <Content Include="Views\Login\Default1.aspx" />
+    <Content Include="Views\Privates\Inicio.aspx" />
+    <Content Include="Views\Privates\Proyectos\AsignarEvaluador.aspx" />
+    <Content Include="Views\Publics\Content\Images\background-image.jpg" />
+    <Content Include="Views\Publics\Content\Images\logoudla.png" />
+    <Content Include="Views\Publics\Login.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
     <Content Include="Site.Mobile.Master" />
@@ -211,11 +221,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\conexion\Class1.cs" />
     <Compile Include="Models\conexion\conexion.cs" />
     <Compile Include="Models\conexion\conexionPropio.cs" />
     <Compile Include="Models\conexion\Parametro.cs" />
     <Compile Include="Models\conexion\ParametroPropio.cs" />
+    <Compile Include="Models\Modelos chaira\PROYECTO.cs" />
+    <Compile Include="Models\Modelos chaira\USUARIOS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
@@ -242,14 +253,44 @@
       <DependentUpon>Default1.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="Views\Privates\Inicio.aspx.cs">
+      <DependentUpon>Inicio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Privates\Inicio.aspx.designer.cs">
+      <DependentUpon>Inicio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Privates\PrivateMaster.Master.cs">
+      <DependentUpon>PrivateMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Privates\PrivateMaster.Master.designer.cs">
+      <DependentUpon>PrivateMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Privates\Proyectos\AsignarEvaluador.aspx.cs">
+      <DependentUpon>AsignarEvaluador.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Privates\Proyectos\AsignarEvaluador.aspx.designer.cs">
+      <DependentUpon>AsignarEvaluador.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Publics\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Publics\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Models\Modelos Sigepi\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+    <Content Include="Views\Privates\PrivateMaster.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -1,0 +1,226 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="PrivateMaster.master.cs" Inherits="Construccion.Views.Privates.PrivateMaster" %>
+
+<%@ Import Namespace="Ext.Net.Utilities" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <ext:ResourceManager ID="ResourceManager1" Theme="Neptune" runat="server" />
+
+        <ext:Viewport
+            runat="server"
+            Layout="BorderLayout">
+            <Items>
+                <%-- PANEL MENÚ PRINCIPAL--%>
+                <ext:Panel
+                    runat="server"
+                    Region="West"
+                    Title="PROYECTOS EXTENSIÓN"
+                    Icon="House"
+                    Width="300"
+                    Collapsible="true"
+                    AutoScroll="true"
+                    MinWidth="175"
+                    MaxWidth="400"
+                    MarginSpec="0 5"
+                    StyleSpec="text-align:center;">
+                    <Items>
+
+                        <ext:Panel
+                            runat="server"
+                            Border="false"
+                            BodyPadding="6"
+                            Height="100"
+                            StyleSpec="text-align:center; font-weight:bold;"
+                            Layout="HBoxLayout"
+                            Collapsible="false">
+                            <Items>
+                                <ext:Image runat="server" ID="Img_Usuario" ImageUrl="~/Views/Privates/Content/Images/user-foto.png" Width="30%" StyleSpec="display: block;margin-left: auto;margin-right: auto;"></ext:Image>
+                                <ext:Label ID="Lbl_Usuario" Text="Usuario Logeado" StyleSpec="font-weight:bold;" runat="server" MarginSpec="20 0 0 0" Height="100"/>
+                            </Items>
+                        </ext:Panel>
+
+                        <ext:Panel
+                            runat="server"
+                            Title="MENÚ"
+                            StyleSpec="text-align:center; font-weight:bold;">
+                            <Items>
+                                <ext:Panel
+                                    runat="server"
+                                    HeaderPosition="Left"
+                                    StyleSpec="text-align:center; font-weight:bold;"
+                                    MarginSpec="5 0">
+                                    <Items>
+                                        <ext:Button
+                                            ID="Btn_Inicio"
+                                            runat="server"
+                                            Text="Inicio"
+                                            Icon="ApplicationHome"
+                                            Href="~/Views/Privates/Inicio.aspx"
+                                            HrefTarget="_top"
+                                            MarginSpec="5 25 5 45"
+                                            TextAlign="Left"
+                                            StyleSpec="display: block;"
+                                            UI="Primary">
+                                        </ext:Button>
+                                    </Items>
+                                </ext:Panel>
+
+                                <ext:Panel
+                                    runat="server"
+                                    StyleSpec="text-align:center; font-weight:bold;"
+                                    Layout="AccordionLayout">
+                                    <LayoutConfig>
+                                        <ext:AccordionLayoutConfig Fill="false" Multi="true" ReserveScrollbar="false"></ext:AccordionLayoutConfig>
+                                    </LayoutConfig>
+                                    <Items>
+                                        <ext:Panel
+                                            runat="server"
+                                            Title="Proyectos"
+                                            MarginSpec="5 0"
+                                            ID="Pnl_Proyectos"
+                                            Visible="false">
+                                            <Items>
+                                                <ext:Button
+                                                    ID="Btn_Registrar_Propuesta"
+                                                    runat="server"
+                                                    Href="~/Views/Privates/Proyectos/RegistrarProyecto.aspx"
+                                                    HrefTarget="_top"
+                                                    Text="Registrar Propuesta"
+                                                    MarginSpec="5 20 5 40"
+                                                    TextAlign="Left"
+                                                    StyleSpec="display: block;"
+                                                    Visible="false"
+                                                    UI="Primary">
+                                                </ext:Button>
+                                                <ext:Button
+                                                    ID="Btn_Proyectos_Usuario"
+                                                    runat="server"
+                                                    Href="~/Views/Privates/Proyectos/VerProyectosUsuario.aspx"
+                                                    Text="Mis Propuestas"
+                                                    MarginSpec="5 20 5 40"
+                                                    TextAlign="Left"
+                                                    StyleSpec="display: block;"
+                                                    HrefTarget="_top"
+                                                    Visible="false"
+                                                    UI="Primary">
+                                                </ext:Button>
+                                                <ext:Button
+                                                    ID="Btn_Ver_Proyectos"
+                                                    runat="server"
+                                                    Href="~/Views/Privates/Proyectos/VerProyectos.aspx"
+                                                    Text="Ver Proyectos"
+                                                    MarginSpec="5 20 5 40"
+                                                    TextAlign="Left"
+                                                    StyleSpec="display: block;"
+                                                    HrefTarget="_top"
+                                                    Visible="false"
+                                                    UI="Primary">
+                                                </ext:Button>
+                                                <ext:Button
+                                                    ID="Btn_Asignar_Evaluadores"
+                                                    runat="server"
+                                                    Href="~/Views/Privates/Proyectos/AsignarEvaluador.aspx"
+                                                    Text="Asignar Evaluadores"
+                                                    MarginSpec="5 20 5 40"
+                                                    TextAlign="Left"
+                                                    StyleSpec="display: block;"
+                                                    HrefTarget="_top"
+                                                    Visible="false"
+                                                    UI="Primary">
+                                                </ext:Button>
+                                                <ext:Button
+                                                    ID="Btn_Evaluar_Proyectos"
+                                                    runat="server"
+                                                    Href="~/Views/Privates/Proyectos/EvaluarProyectos.aspx"
+                                                    Text="Evaluación de Proyectos"
+                                                    MarginSpec="5 20 5 40"
+                                                    TextAlign="Left"
+                                                    StyleSpec="display: block;"
+                                                    HrefTarget="_top"
+                                                    Visible="false"
+                                                    UI="Primary">
+                                                </ext:Button>
+                                                <ext:Button
+                                                    ID="Btn_Ver_Evaluaciones"
+                                                    runat="server"
+                                                    Href="~/Views/Privates/Proyectos/VerEvaluaciones.aspx"
+                                                    Text="Ver Evaluaciones"
+                                                    MarginSpec="5 20 5 40"
+                                                    TextAlign="Left"
+                                                    StyleSpec="display: block;"
+                                                    HrefTarget="_top"
+                                                    Visible="false"
+                                                    UI="Primary">
+                                                </ext:Button>
+                                            </Items>
+                                        </ext:Panel>
+
+                                        <ext:Panel
+                                            runat="server"
+                                            Title="Usuarios"
+                                            MarginSpec="5 0"
+                                            ID="Pnl_Usuarios"
+                                            Visible="false">
+                                            <Items>
+                                                <ext:Button
+                                                    ID="Btn_Ver_Usuarios"
+                                                    runat="server"
+                                                    Text="Ver usuarios"
+                                                    MarginSpec="5 20 5 40"
+                                                    StyleSpec="display: block;margin-left: auto;margin-right: auto;"
+                                                    Href="~/Views/Privates/Usuarios/VerUsuarios.aspx"
+                                                    HrefTarget="_top"
+                                                    UI="Primary"
+                                                    Visible="false">
+                                                </ext:Button>
+                                            </Items>
+                                        </ext:Panel>
+                                    </Items>
+                                </ext:Panel>
+                            </Items>
+                        </ext:Panel>
+                    </Items>
+                    <Buttons>
+                        <ext:Button
+                            Text="Opciones de Usuario"
+                            runat="server"
+                            Icon="User"
+                            UI="Primary"
+                            Href="~/Views/Privates/Usuarios/DatosUsuario.aspx"
+                            HrefTarget="_top" />
+                        <ext:Button
+                            Text="Cerrar Sesión"
+                            runat="server"
+                            Icon="Lock"
+                            UI="Primary">
+                            <DirectEvents>
+                                <Click OnEvent="Btn_Cerrar_Session_Click"></Click>
+                            </DirectEvents>
+                        </ext:Button>
+                    </Buttons>
+                </ext:Panel>
+                <ext:Container runat="server" Layout="FitLayout" Region="Center">
+                    <Content>
+                        <asp:ContentPlaceHolder ID="Content" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </Content>
+                </ext:Container>
+            </Items>
+        </ext:Viewport>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+        <asp:ContentPlaceHolder ID="ScriptsEndPage" runat="server">
+        </asp:ContentPlaceHolder>
+    </form>
+</body>
+</html>
