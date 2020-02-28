@@ -69,7 +69,7 @@ namespace Construccion.Models.Modelos_chaira
              "VARCHAR",
              ParameterDirection.Input
              ));
-            return conect.ExecuteProcedure("consul_Par_Evaluador_Proye", p);
+            return conect.ExecuteProcedure("insert_par_evaluador", p);
 
         }
 

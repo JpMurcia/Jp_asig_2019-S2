@@ -28,7 +28,7 @@ namespace Construccion.Views.Privates.Proyectos
                     if (!IsPostBack)
                     {
                         //
-                        Store_Proyectos.DataSource =  dt.consultargrupoModel();
+                        Store_Proyectos.DataSource = dt.consultargrupoModel();
                         Store_Proyectos.DataBind();
                         DataTable DT_Evaluadores = dt2.consul_Par_Evaluador();
                         Str_Evaluador_1.DataSource = DT_Evaluadores;
@@ -79,7 +79,7 @@ namespace Construccion.Views.Privates.Proyectos
             Session["ID"] = e.ExtraParams["COD_PROYECTO"].ToString();
             dt.id_proye = e.ExtraParams["COD_PROYECTO"].ToString();
             DataTable DT_Evaluadores = dt.consultarParEvaluador(dt);
-            string hola =  DT_Evaluadores.ToString();
+            string hola = DT_Evaluadores.ToString();
             if (DT_Evaluadores.Rows.Count.Equals(1))
             {
                 CB_Evaluador_1.Select(DT_Evaluadores.Rows[0]["ID"].ToString());
@@ -99,96 +99,99 @@ namespace Construccion.Views.Privates.Proyectos
 
         protected void Btn_Guardar_Evaluadores_Click(object sender, DirectEventArgs e)
         {
-    //        try
-    //        {
-    //            DataTable DT_Mensaje1, DT_Mensaje2;
-
-    //            if (!CB_Evaluador_1.SelectedItem.IsEmptyObject() && !CB_Evaluador_2.SelectedItem.IsEmptyObject() && (bool)Session["Ev1"] && (bool)Session["Ev2"])
-    //            {
-    //                if (!CB_Evaluador_1.SelectedItem.Value.Equals(CB_Evaluador_2.SelectedItem.Value))
-    //                    {
-    //                    //dt.id_proye= Session["ID"].ToString();
-    //                        DT_Mensaje1 = dt.AsignarEvaluador(CB_Evaluador_1.SelectedItem.Value, dt);
-    //                        DT_Mensaje2 = dt.AsignarEvaluador(CB_Evaluador_2.SelectedItem.Value, dt);
-    //                    Ventana_Evaluadores.Hide();
-    //                if (DT_Mensaje1.Rows[0]["TIPO"].Equals("3") && DT_Mensaje2.Rows[0]["TIPO"].Equals("3"))
-    //                    X.Msg.Alert("Registro exitoso", "Evaluadores registrados correctamente.").Show();
-    //                else
-    //                    X.Msg.Alert("Error!", DT_Mensaje1.Rows[0]["MENSAJE"].ToString()).Show();
-    //            }
-    //            else
-    //                X.Msg.Alert("Error!", "Debe seleccionar dos evaluadores diferentes").Show();
-    //        }
-    //            else if (!CB_Evaluador_1.SelectedItem.IsEmptyObject() && (bool)Session["Ev1"])
-    //        {
-    //            if (!CB_Evaluador_2.SelectedItem.IsEmptyObject())
-    //            {
-    //                if (!CB_Evaluador_1.SelectedItem.Value.Equals(CB_Evaluador_2.SelectedItem.Value))
-    //                {
-    //                    DT_Mensaje1 = dt.AsignarEvaluador(CB_Evaluador_1.SelectedItem.Value, dt);
-    //                    Ventana_Evaluadores.Hide();
-    //                    if (DT_Mensaje1.Rows[0]["TIPO"].Equals("3"))
-    //                        X.Msg.Alert("Registro exitoso", DT_Mensaje1.Rows[0]["MENSAJE"].ToString(), "new function(){location.href = 'AsignarEvaluador.aspx'}").Show();
-    //                    else
-    //                        X.Msg.Alert("Error!", DT_Mensaje1.Rows[0]["MENSAJE"].ToString()).Show();
-    //                }
-    //                else
-    //                    X.Msg.Alert("Error!", "Debe seleccionar dos evaluadores diferentes").Show();
-    //            }
-    //            else
-    //            {
-    //                DT_Mensaje1 = dt.AsignarEvaluador(CB_Evaluador_1.SelectedItem.Value, dt);
-    //                Ventana_Evaluadores.Hide();
-    //                if (DT_Mensaje1.Rows[0]["TIPO"].Equals("3"))
-    //                    X.Msg.Alert("Registro exitoso", DT_Mensaje1.Rows[0]["MENSAJE"].ToString(), "new function(){location.href = 'AsignarEvaluador.aspx'}").Show();
-    //                else
-    //                    X.Msg.Alert("Error!", DT_Mensaje1.Rows[0]["MENSAJE"].ToString()).Show();
-    //            }
-    //        }
-    //        else if (!CB_Evaluador_2.SelectedItem.IsEmptyObject() && (bool)Session["Ev2"])
-    //        {
-    //            if (!CB_Evaluador_1.SelectedItem.IsEmptyObject())
-    //            {
-    //                if (!CB_Evaluador_1.SelectedItem.Value.Equals(CB_Evaluador_2.SelectedItem.Value))
-    //                {
-    //                    DT_Mensaje2 = dt.AsignarEvaluador(CB_Evaluador_2.SelectedItem.Value, Session["ID"].ToString());
-    //                    Ventana_Evaluadores.Hide();
-    //                    if (DT_Mensaje2.Rows[0]["TIPO"].Equals("3"))
-    //                        X.Msg.Alert("Registro exitoso", DT_Mensaje2.Rows[0]["MENSAJE"].ToString(), "new function(){location.href = 'AsignarEvaluador.aspx'}").Show();
-    //                    else
-    //                        X.Msg.Alert("Error!", DT_Mensaje2.Rows[0]["MENSAJE"].ToString()).Show();
-    //                }
-    //                else
-    //                    X.Msg.Alert("Error!", "Debe seleccionar dos evaluadores diferentes").Show();
-    //            }
-    //            else
-    //            {
-    //                DT_Mensaje2 = dt.AsignarEvaluador(CB_Evaluador_2.SelectedItem.Value, Session["ID"].ToString());
-    //                Ventana_Evaluadores.Hide();
-    //                if (DT_Mensaje2.Rows[0]["TIPO"].Equals("3"))
-    //                    X.Msg.Alert("Registro exitoso", DT_Mensaje2.Rows[0]["MENSAJE"].ToString(), "new function(){location.href = 'AsignarEvaluador.aspx'}").Show();
-    //                else
-    //                    X.Msg.Alert("Error!", DT_Mensaje2.Rows[0]["MENSAJE"].ToString()).Show();
-    //            }
-    //        }
-    //        else if (!(bool)Session["Ev1"] && !(bool)Session["Ev2"])
-    //            X.Msg.Alert("Info", "Los evaluadores ya fueron asignados.").Show();
-    //        else if (!(bool)Session["Ev1"] && CB_Evaluador_2.SelectedItem.IsEmptyObject())
-    //            X.Msg.Alert("Info", "Por favor, selecciona al evaluador restante.").Show();
-    //        else
-    //            X.Msg.Alert("Advertencia!", "Por favor, selecciona al menos a un evaluador.").Show();
-    //    }
-    //        catch (Exception ex)
-    //        {
-    //            X.Msg.Alert("Error!", ex.Message).Show();
-    //}
-    //        finally
-    //        {
-    //            Session.Remove("ID");
-    //            Session.Remove("Ev1");
-    //            Session.Remove("Ev2");
-    //        }
-    //         }
-       }
+            try
+            {
+                DataTable DT_Mensaje1, DT_Mensaje2;
+                dt.id_proye = Session["ID"].ToString();
+                if (!CB_Evaluador_1.SelectedItem.IsEmptyObject() && !CB_Evaluador_2.SelectedItem.IsEmptyObject() && (bool)Session["Ev1"] && (bool)Session["Ev2"])
+                {
+                    if (!CB_Evaluador_1.SelectedItem.Value.Equals(CB_Evaluador_2.SelectedItem.Value))
+                    {
+                        dt.id_proye= Session["ID"].ToString();
+                        DT_Mensaje1 = dt.AsignarEvaluador(CB_Evaluador_1.SelectedItem.Value, dt);
+                        DT_Mensaje2 = dt.AsignarEvaluador(CB_Evaluador_2.SelectedItem.Value, dt);
+                        Ventana_Evaluadores.Hide();
+                        if (DT_Mensaje1.Rows[0]["TIPO"].Equals("3") && DT_Mensaje2.Rows[0]["TIPO"].Equals("3"))
+                            X.Msg.Alert("Registro exitoso", "Evaluadores registrados correctamente.").Show();
+                        else
+                            X.Msg.Alert("Error!", DT_Mensaje1.Rows[0]["MENSAJE"].ToString()).Show();
+                    }
+                    else
+                        X.Msg.Alert("Error!", "Debe seleccionar dos evaluadores diferentes").Show();
+                }
+                else if (!CB_Evaluador_1.SelectedItem.IsEmptyObject() && (bool)Session["Ev1"])
+                {
+                    if (!CB_Evaluador_2.SelectedItem.IsEmptyObject())
+                    {
+                        if (!CB_Evaluador_1.SelectedItem.Value.Equals(CB_Evaluador_2.SelectedItem.Value))
+                        {
+                            DT_Mensaje1 = dt.AsignarEvaluador(CB_Evaluador_1.SelectedItem.Value, dt);
+                            Ventana_Evaluadores.Hide();
+                            if (DT_Mensaje1.Rows[0]["TIPO"].Equals("3"))
+                                X.Msg.Alert("Registro exitoso", DT_Mensaje1.Rows[0]["MENSAJE"].ToString(), "new function(){location.href = 'AsignarEvaluador.aspx'}").Show();
+                            else
+                                X.Msg.Alert("Error!", DT_Mensaje1.Rows[0]["MENSAJE"].ToString()).Show();
+                        }
+                        else
+                            X.Msg.Alert("Error!", "Debe seleccionar dos evaluadores diferentes").Show();
+                    }
+                    else
+                    {
+                        DT_Mensaje1 = dt.AsignarEvaluador(CB_Evaluador_1.SelectedItem.Value, dt);
+                        Ventana_Evaluadores.Hide();
+                        if (DT_Mensaje1.Rows[0]["TIPO"].Equals("3"))
+                            X.Msg.Alert("Registro exitoso", DT_Mensaje1.Rows[0]["MENSAJE"].ToString(), "new function(){location.href = 'AsignarEvaluador.aspx'}").Show();
+                        else
+                            X.Msg.Alert("Error!", DT_Mensaje1.Rows[0]["MENSAJE"].ToString()).Show();
+                    }
+                }
+                else if (!CB_Evaluador_2.SelectedItem.IsEmptyObject() && (bool)Session["Ev2"])
+                {
+                    if (!CB_Evaluador_1.SelectedItem.IsEmptyObject())
+                    {
+                        if (!CB_Evaluador_1.SelectedItem.Value.Equals(CB_Evaluador_2.SelectedItem.Value))
+                        {
+                            
+                            DT_Mensaje2 = dt.AsignarEvaluador(CB_Evaluador_2.SelectedItem.Value, dt);
+                            Ventana_Evaluadores.Hide();
+                            if (DT_Mensaje2.Rows[0]["TIPO"].Equals("3"))
+                                X.Msg.Alert("Registro exitoso", DT_Mensaje2.Rows[0]["MENSAJE"].ToString(), "new function(){location.href = 'AsignarEvaluador.aspx'}").Show();
+                            else
+                                X.Msg.Alert("Error!", DT_Mensaje2.Rows[0]["MENSAJE"].ToString()).Show();
+                        }
+                        else
+                            X.Msg.Alert("Error!", "Debe seleccionar dos evaluadores diferentes").Show();
+                    }
+                    else
+                    {
+                        DT_Mensaje2 = dt.AsignarEvaluador(CB_Evaluador_2.SelectedItem.Value, dt);
+                        Ventana_Evaluadores.Hide();
+                        if (DT_Mensaje2.Rows[0]["TIPO"].Equals("3"))
+                            X.Msg.Alert("Registro exitoso", DT_Mensaje2.Rows[0]["MENSAJE"].ToString(), "new function(){location.href = 'AsignarEvaluador.aspx'}").Show();
+                        else
+                            X.Msg.Alert("Error!", DT_Mensaje2.Rows[0]["MENSAJE"].ToString()).Show();
+                    }
+                }
+                else if (!(bool)Session["Ev1"] && !(bool)Session["Ev2"])
+                    X.Msg.Alert("Info", "Los evaluadores ya fueron asignados.").Show();
+                else if (!(bool)Session["Ev1"] && CB_Evaluador_2.SelectedItem.IsEmptyObject())
+                    X.Msg.Alert("Info", "Por favor, selecciona al evaluador restante.").Show();
+                else
+                    X.Msg.Alert("Advertencia!", "Por favor, selecciona al menos a un evaluador.").Show();
+            }
+            catch (Exception ex)
+            {
+                X.Msg.Alert("Error!", ex.Message).Show();
+            }
+            finally
+            {
+                Session.Remove("ID");
+                Session.Remove("Ev1");
+                Session.Remove("Ev2");
+            }
+        
+    
+        
+    }
     }
 }
