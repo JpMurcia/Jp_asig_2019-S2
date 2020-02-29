@@ -7,7 +7,7 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace PEPEPS.Views.Privates.Proyectos {
+namespace Construccion.Views.Privates.Proyectos {
     
     
     public partial class EvaluarProyectos {

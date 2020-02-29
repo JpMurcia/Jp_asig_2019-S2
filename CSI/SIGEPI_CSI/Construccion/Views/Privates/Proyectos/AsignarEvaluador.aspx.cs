@@ -28,7 +28,7 @@ namespace Construccion.Views.Privates.Proyectos
                     if (!IsPostBack)
                     {
                         //
-                        Store_Proyectos.DataSource = dt.consultargrupoModel();
+                        Store_Proyectos.DataSource = dt.consultarProyec();
                         Store_Proyectos.DataBind();
                         DataTable DT_Evaluadores = dt2.consul_Par_Evaluador();
                         Str_Evaluador_1.DataSource = DT_Evaluadores;
@@ -128,7 +128,9 @@ namespace Construccion.Views.Privates.Proyectos
                             DT_Mensaje1 = dt.AsignarEvaluador(CB_Evaluador_1.SelectedItem.Value, dt);
                             Ventana_Evaluadores.Hide();
                             if (DT_Mensaje1.Rows[0]["TIPO"].Equals("3"))
-                                X.Msg.Alert("Registro exitoso", DT_Mensaje1.Rows[0]["MENSAJE"].ToString(), "new function(){location.href = 'AsignarEvaluador.aspx'}").Show();
+                                X.Msg.Alert("Registro exitoso", "Evaluadores registrados correctamente.", "new function(){location.href = 'AsignarEvaluador.aspx'}").Show();
+
+                            //X.Msg.Alert("Registro exitoso", DT_Mensaje1.Rows[0]["MENSAJE"].ToString(), "new function(){location.href = 'AsignarEvaluador.aspx'}").Show();
                             else
                                 X.Msg.Alert("Error!", DT_Mensaje1.Rows[0]["MENSAJE"].ToString()).Show();
                         }
@@ -140,7 +142,7 @@ namespace Construccion.Views.Privates.Proyectos
                         DT_Mensaje1 = dt.AsignarEvaluador(CB_Evaluador_1.SelectedItem.Value, dt);
                         Ventana_Evaluadores.Hide();
                         if (DT_Mensaje1.Rows[0]["TIPO"].Equals("3"))
-                            X.Msg.Alert("Registro exitoso", DT_Mensaje1.Rows[0]["MENSAJE"].ToString(), "new function(){location.href = 'AsignarEvaluador.aspx'}").Show();
+                            X.Msg.Alert("Registro exitoso", "Evaluadores registrados correctamente.", "new function(){location.href = 'AsignarEvaluador.aspx'}").Show();
                         else
                             X.Msg.Alert("Error!", DT_Mensaje1.Rows[0]["MENSAJE"].ToString()).Show();
                     }
@@ -155,7 +157,9 @@ namespace Construccion.Views.Privates.Proyectos
                             DT_Mensaje2 = dt.AsignarEvaluador(CB_Evaluador_2.SelectedItem.Value, dt);
                             Ventana_Evaluadores.Hide();
                             if (DT_Mensaje2.Rows[0]["TIPO"].Equals("3"))
-                                X.Msg.Alert("Registro exitoso", DT_Mensaje2.Rows[0]["MENSAJE"].ToString(), "new function(){location.href = 'AsignarEvaluador.aspx'}").Show();
+                            //    X.Msg.Alert("Registro exitoso", DT_Mensaje2.Rows[0]["MENSAJE"].ToString(), "new function(){location.href = 'AsignarEvaluador.aspx'}").Show();
+                                X.Msg.Alert("Registro exitoso", "Evaluadores registrados correctamente.", "new function(){location.href = 'AsignarEvaluador.aspx'}").Show();
+
                             else
                                 X.Msg.Alert("Error!", DT_Mensaje2.Rows[0]["MENSAJE"].ToString()).Show();
                         }

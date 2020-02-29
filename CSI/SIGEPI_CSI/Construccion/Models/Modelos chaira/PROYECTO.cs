@@ -27,7 +27,7 @@ namespace Construccion.Models.Modelos_chaira
 
 
 
-        public DataTable consultargrupoModel()
+        public DataTable consultarProyec()
         {
             List<Parametro> p = new List<Parametro>();
 

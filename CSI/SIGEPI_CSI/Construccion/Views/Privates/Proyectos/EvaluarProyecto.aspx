@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Evaluar Proyecto" Language="C#" MasterPageFile="~/Views/Privates/PrivateMaster.Master" AutoEventWireup="true" CodeBehind="EvaluarProyecto.aspx.cs" Inherits="PEPEPS.Views.Privates.Proyectos.EvaluarProyecto" %>
+﻿<%@ Page Title="Evaluar Proyecto" Language="C#" MasterPageFile="~/Views/Privates/PrivateMaster.Master" AutoEventWireup="true" CodeBehind="EvaluarProyecto.aspx.cs" Inherits="Construccion.Views.Privates.Proyectos.EvaluarProyecto" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script>

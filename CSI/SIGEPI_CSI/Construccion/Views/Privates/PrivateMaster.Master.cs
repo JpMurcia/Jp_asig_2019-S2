@@ -7,13 +7,17 @@ using System.Web.UI.WebControls;
 using Ext.Net;
 
 using System.Data;
+using Construccion.Models.Modelos_chaira;
 
 namespace Construccion.Views.Privates
 {
     public partial class PrivateMaster : System.Web.UI.MasterPage
     {
-       
-      
+
+
+        DataTable DT_Persona;
+
+        USUARIOS user = new USUARIOS();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -25,18 +29,31 @@ namespace Construccion.Views.Privates
                 {
                     if (!IsPostBack)
                     {
+                        user.id = Session["ID_PER"].ToString();
+                        DT_Persona = user.Consul_Es_par(user);
                         /// DT_Persona = Mdl_Persona.ConsultarUsuarioCorreo(Session["Usuario"].ToString());
                         // Lbl_Usuario.Text = DT_Persona.Rows[0]["NOMBRES"].ToString() + " " + DT_Persona.Rows[0]["APELLIDOS"].ToString();
 
 
                         if (Session["rol"].ToString().Equals("8"))
                         {
-                            Btn_Registrar_Propuesta.Visible =
+                           
                             Pnl_Proyectos.Visible = Btn_Proyectos_Usuario.Visible = true;
                         }
-                        else if (Session["rol"].ToString().ToString().Equals("1"))
+                        else if (Session["rol"].ToString().ToString().Equals("10"))
                         {
-                            Pnl_Proyectos.Visible = Btn_Evaluar_Proyectos.Visible = true;
+
+                            if (DT_Persona.Rows[0]["Mensaje"].ToString().Equals("SI"))
+                            {
+                                Pnl_Proyectos.Visible = Btn_Evaluar_Proyectos.Visible = true;
+
+                            }
+                            else {
+
+                                X.Msg.Alert("Retricion", "Aun NO esta vinculado con ningu proyecto").Show();
+
+                            }
+
                         }
                         else if (Session["rol"].ToString().Equals("4"))
                         {
@@ -44,8 +61,8 @@ namespace Construccion.Views.Privates
                         }
                         else if (Session["rol"].ToString().Equals("9"))
                         {
-                            Btn_Proyectos_Usuario.Visible = Pnl_Proyectos.Visible = Btn_Registrar_Propuesta.Visible = Btn_Evaluar_Proyectos.Visible = Btn_Ver_Proyectos.Visible
-                                = Btn_Asignar_Evaluadores.Visible = Btn_Ver_Evaluaciones.Visible = Pnl_Usuarios.Visible = Btn_Ver_Usuarios.Visible = true;
+                            Btn_Proyectos_Usuario.Visible = Pnl_Proyectos.Visible =  Btn_Evaluar_Proyectos.Visible = Btn_Ver_Proyectos.Visible
+                                = Btn_Asignar_Evaluadores.Visible = Btn_Ver_Evaluaciones.Visible  = true;
                         }
                     }
                 }

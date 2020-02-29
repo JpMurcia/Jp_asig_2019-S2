@@ -44,6 +44,7 @@ namespace Construccion.Views.Usuarios
                   
                     Session["usuario"] = TB_Correo.Text;
                     Session["rol"] = DT_Mensaje.Rows[0]["ID_ROL"];
+                    Session["ID_PER"] = DT_Mensaje.Rows[0]["ID_PER"];
                     X.Redirect("~/Views/Privates/Inicio.aspx");
                 }
                 else

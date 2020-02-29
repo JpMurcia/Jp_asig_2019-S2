@@ -239,8 +239,8 @@ D:\JpMurcia\Git\Jp_asig_2019-S2\CSI\SIGEPI_CSI\Construccion\bin\Microsoft.AspNet
 D:\JpMurcia\Git\Jp_asig_2019-S2\CSI\SIGEPI_CSI\Construccion\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 D:\JpMurcia\Git\Jp_asig_2019-S2\CSI\SIGEPI_CSI\Construccion\bin\es\System.Web.Optimization.resources.dll
 D:\JpMurcia\Git\Jp_asig_2019-S2\CSI\SIGEPI_CSI\Construccion\bin\es\Microsoft.AspNet.FriendlyUrls.resources.dll
-D:\JpMurcia\Git\Jp_asig_2019-S2\CSI\SIGEPI_CSI\Construccion\obj\Debug\Construccion.csprojAssemblyReference.cache
 D:\JpMurcia\Git\Jp_asig_2019-S2\CSI\SIGEPI_CSI\Construccion\obj\Debug\Construccion.csproj.CoreCompileInputs.cache
 D:\JpMurcia\Git\Jp_asig_2019-S2\CSI\SIGEPI_CSI\Construccion\obj\Debug\Construccion.csproj.CopyComplete
 D:\JpMurcia\Git\Jp_asig_2019-S2\CSI\SIGEPI_CSI\Construccion\obj\Debug\Construccion.dll
 D:\JpMurcia\Git\Jp_asig_2019-S2\CSI\SIGEPI_CSI\Construccion\obj\Debug\Construccion.pdb
+D:\JpMurcia\Git\Jp_asig_2019-S2\CSI\SIGEPI_CSI\Construccion\obj\Debug\Construccion.csprojAssemblyReference.cache

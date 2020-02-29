@@ -7,14 +7,17 @@ using System.Web.UI.WebControls;
 using System.Xml;
 using System.Xml.Xsl;
 using Ext.Net;
-using PEPEPS.Models;
-using System.Data;
 
-namespace PEPEPS.Views.Privates.Proyectos
+using System.Data;
+using Construccion.Models.Modelos_chaira;
+
+namespace Construccion.Views.Privates.Proyectos
 {
     public partial class VerProyectos : System.Web.UI.Page
     {
-        PE_PROYECTO Mdl_Proyecto = new PE_PROYECTO();
+        USUARIOS dt1 = new USUARIOS();
+        PROYECTO dt = new PROYECTO();
+       // PE_PROYECTO Mdl_Proyecto = new PE_PROYECTO();
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -25,7 +28,7 @@ namespace PEPEPS.Views.Privates.Proyectos
                 {
                     if (!IsPostBack)
                     {
-                        Store_Proyectos.DataSource = new PE_PROYECTO().ConsultarProyectos();
+                        Store_Proyectos.DataSource = dt.consultarProyec();
                         Store_Proyectos.DataBind();
                     }
                 }
@@ -89,7 +92,7 @@ namespace PEPEPS.Views.Privates.Proyectos
                 using (System.Web.UI.HtmlTextWriter htw = new System.Web.UI.HtmlTextWriter(sw))
                 {
                     System.Web.UI.WebControls.GridView grid = new System.Web.UI.WebControls.GridView();
-                    grid.DataSource = Mdl_Proyecto.ConsultarProyectosGrupos();
+                    grid.DataSource = dt.consultarProyec();
                     grid.DataBind();
                     grid.RenderControl(htw);
                     Response.Write(sw.ToString());

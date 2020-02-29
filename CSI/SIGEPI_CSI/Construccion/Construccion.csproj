@@ -187,6 +187,9 @@
     <Content Include="Views\Login\Default1.aspx" />
     <Content Include="Views\Privates\Inicio.aspx" />
     <Content Include="Views\Privates\Proyectos\AsignarEvaluador.aspx" />
+    <Content Include="Views\Privates\Proyectos\EvaluarProyecto.aspx" />
+    <Content Include="Views\Privates\Proyectos\EvaluarProyectos.aspx" />
+    <Content Include="Views\Privates\Proyectos\VerProyectos.aspx" />
     <Content Include="Views\Publics\Content\Images\background-image.jpg" />
     <Content Include="Views\Publics\Content\Images\logoudla.png" />
     <Content Include="Views\Publics\Login.aspx" />
@@ -273,6 +276,27 @@
     </Compile>
     <Compile Include="Views\Privates\Proyectos\AsignarEvaluador.aspx.designer.cs">
       <DependentUpon>AsignarEvaluador.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Privates\Proyectos\EvaluarProyecto.aspx.cs">
+      <DependentUpon>EvaluarProyecto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Privates\Proyectos\EvaluarProyecto.aspx.designer.cs">
+      <DependentUpon>EvaluarProyecto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Privates\Proyectos\EvaluarProyectos.aspx.cs">
+      <DependentUpon>EvaluarProyectos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Privates\Proyectos\EvaluarProyectos.aspx.designer.cs">
+      <DependentUpon>EvaluarProyectos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Privates\Proyectos\VerProyectos.aspx.cs">
+      <DependentUpon>VerProyectos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Privates\Proyectos\VerProyectos.aspx.designer.cs">
+      <DependentUpon>VerProyectos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Publics\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
