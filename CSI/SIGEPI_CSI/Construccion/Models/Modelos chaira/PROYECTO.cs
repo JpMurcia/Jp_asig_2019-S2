@@ -73,6 +73,97 @@ namespace Construccion.Models.Modelos_chaira
 
         }
 
+        public DataTable ConsultarProyectosEvaluacion(string id, string correo)
+        {
+            List<Parametro> P = new List<Parametro>();
+            P.Add(new Parametro(
+                "PROYECTO", 
+                id, "NUMBER",
+                ParameterDirection.Input
+                ));
+            P.Add(new Parametro("ID_USER",
+                correo, 
+                "VARCHAR2", 
+                ParameterDirection.Input
+                ));
+            return conect.ExecuteProcedure("consul_Proyec_Evaulacion", P);
+        }
+
+        public DataTable ConsultarProyectosParaEvaluar(string id)
+        {
+            List<Parametro> P = new List<Parametro>();
+            P.Add(new Parametro(
+                "ID_PER",
+                id, "NUMBER",
+                ParameterDirection.Input
+                ));
+         
+            return conect.ExecuteProcedure("consul_Proyectos_del_Par", P);
+        }
+
+
+        public DataTable ConsultarPuntajeItemsEvaluador(string id)
+        {
+            List<Parametro> P = new List<Parametro>();
+            P.Add(new Parametro(
+                "id_Evaluacion",
+                id, "NUMBER",
+                ParameterDirection.Input
+                ));
+
+            return conect.ExecuteProcedure("consul_Puntaje_Items_Evaluador", P);
+        }
+
+        
+             public DataTable ConsultarObservacionesEvaluacion(string id)
+        {
+            List<Parametro> P = new List<Parametro>();
+            P.Add(new Parametro(
+                "ID_EVAL",
+                id, "NUMBER",
+                ParameterDirection.Input
+                ));
+
+            return conect.ExecuteProcedure("consultar_Observaciones_Evaluacion", P);
+        }
+
+
+        public DataTable AsignarPuntajeItem(string Id, string Id_Item,string Puntaje)
+        {
+            List<Parametro> P = new List<Parametro>();
+            P.Add(new Parametro(
+                "id_Evaluacion",
+                Id, "NUMBER",
+                ParameterDirection.Input
+                ));
+            P.Add(new Parametro(
+               "id_Item",
+               Id_Item, "NUMBER",
+               ParameterDirection.Input
+               ));
+            P.Add(new Parametro(
+               "Puntaje",
+               Puntaje, "NUMBER",
+               ParameterDirection.Input
+               ));
+
+            return conect.ExecuteProcedure("asignar_Puntaje_Item", P);
+        }
+
+        public DataTable GuardarEvaluacion(string evaluacion, string observaciones, string plant, string justi, string obje, string meto, string impa, string resul)
+        {
+            List<Parametro> P = new List<Parametro>();
+            P.Add(new Parametro("EVALUACION", evaluacion, "NUMBER", ParameterDirection.Input));
+            P.Add(new Parametro("PLANTEAMIENTO", plant, "NUMBER", ParameterDirection.Input));
+            P.Add(new Parametro("JUSTIFICACION", justi, "NUMBER", ParameterDirection.Input));
+            P.Add(new Parametro("OBJETIVOS", obje, "NUMBER", ParameterDirection.Input));
+            P.Add(new Parametro("METODOLOGIA", meto, "NUMBER", ParameterDirection.Input));
+            P.Add(new Parametro("IMPACTO", impa, "NUMBER", ParameterDirection.Input));
+            P.Add(new Parametro("RESULTADOS", resul, "NUMBER", ParameterDirection.Input));
+            P.Add(new Parametro("OBSERVACIONES", observaciones, "VARCHAR2", ParameterDirection.Input));
+            return conect.ExecuteProcedure("UPDA_EVALUACION",  P);
+        }
+
 
     }
 }

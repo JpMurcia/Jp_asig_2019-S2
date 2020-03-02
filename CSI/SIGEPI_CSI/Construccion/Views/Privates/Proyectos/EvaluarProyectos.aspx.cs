@@ -27,7 +27,7 @@ namespace Construccion.Views.Privates.Proyectos
                 {
                     if (!IsPostBack)
                     {
-                        DT_Proyecto = Mdl_Proyecto.ConsultarProyectosEvaluador(Session["Usuario"].ToString());
+                        DT_Proyecto = Mdl_Proyecto.ConsultarProyectosParaEvaluar(Session["ID_PER"].ToString());
 
                         if (DT_Proyecto.Rows.Count.Equals(0))
                         {

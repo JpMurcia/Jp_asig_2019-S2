@@ -22,14 +22,14 @@ namespace Construccion.Views.Privates.Proyectos
         {
             try
             {
-                DT_Proyecto = Mdl_Proyecto.ConsultarProyectosEvaluacion(Request.QueryString["id"].ToString(), Session["Usuario"].ToString());
+                DT_Proyecto = Mdl_Proyecto.ConsultarProyectosEvaluacion(Request.QueryString["id"].ToString(), Session["ID_PER"].ToString());
                 TA_Metodologia.Text = DT_Proyecto.Rows[0]["METODOLOGIA"].ToString();
                 TA_Justificacion.Text = DT_Proyecto.Rows[0]["JUSTIFICACION"].ToString();
                 TA_Planteamiento.Text = DT_Proyecto.Rows[0]["PLANTEAMIENTO"].ToString();
                 TA_Impacto.Text = DT_Proyecto.Rows[0]["IMPACTO"].ToString();
                 TA_Resultados.Text = DT_Proyecto.Rows[0]["RESULTADOS"].ToString();
                 TA_General.Text = DT_Proyecto.Rows[0]["GENERAL"].ToString();
-                TA_Especificos.Text = DT_Proyecto.Rows[0]["ESPECIFICOS"].ToString();
+               // TA_Especificos.Text = DT_Proyecto.Rows[0]["ESPECIFICOS"].ToString();
                 Session["Evaluacion"] = DT_Proyecto.Rows[0]["EVALUACION"].ToString();
 
                 Lbl_Planteamiento.Text = Lbl_Justificacion.Text = Lbl_Objetivos.Text = Lbl_Metodologia.Text = Lbl_Impacto.Text = Lbl_Resultados.Text
@@ -46,7 +46,9 @@ namespace Construccion.Views.Privates.Proyectos
 
                 if (!IsPostBack)
                 {
-                    DT_Proyecto = Mdl_Proyecto.ConsultarPuntajeItemsEvaluador(Session["Evaluacion"].ToString(), Session["Usuario"].ToString());
+                    //DT_Proyecto = Mdl_Proyecto.ConsultarPuntajeItemsEvaluador(Session["Evaluacion"].ToString(), Session["ID_PER"].ToString());
+
+                    DT_Proyecto = Mdl_Proyecto.ConsultarPuntajeItemsEvaluador(Session["Evaluacion"].ToString());
                     TF_Puntaje_Planteamiento.Text = DT_Proyecto.Rows[0]["PUNTAJE"].ToString();
                     TF_Puntaje_Justificacion.Text = DT_Proyecto.Rows[1]["PUNTAJE"].ToString();
                     TF_Puntaje_Objetivos.Text = DT_Proyecto.Rows[2]["PUNTAJE"].ToString();
@@ -54,7 +56,7 @@ namespace Construccion.Views.Privates.Proyectos
                     TF_Puntaje_Impacto.Text = DT_Proyecto.Rows[4]["PUNTAJE"].ToString();
                     TF_Puntaje_Resultados.Text = DT_Proyecto.Rows[6]["PUNTAJE"].ToString();
 
-                    DT_Proyecto = Mdl_Proyecto.ConsultarObservacionesEvaluacion(Session["Evaluacion"].ToString(), Session["Usuario"].ToString());
+                    DT_Proyecto = Mdl_Proyecto.ConsultarObservacionesEvaluacion(Session["Evaluacion"].ToString());
                     TA_Observaciones.Text = DT_Proyecto.Rows[0]["OBSERVACIONES"].ToString();
                 }
             }

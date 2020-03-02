@@ -1,0 +1,58 @@
+
+evaluar proyecto solo los que tiene proyectos vinculados, ID per, 
+debe mostrar lista asi
+<ext:ModelField Name="PROYECTO" Type="String" />
+                                            <ext:ModelField Name="ID" Type="String" />
+                                            <ext:ModelField Name="ESTADO" Type="String" />
+                                            <ext:ModelField Name="ENLACE" Type="String" />
+
+---se utiliza esta 
+///consul_Proyectos_del_Par///
+Listo
+
+Consultar de la vista Evalaur proyecto (proye especifico )
+
+DT_Proyecto = Mdl_Proyecto.ConsultarProyectosEvaluacion(Request.QueryString["id"].ToString(), Session["ID_PER"].ToString());
+                TA_Metodologia.Text = DT_Proyecto.Rows[0]["METODOLOGIA"].ToString();
+                TA_Justificacion.Text = DT_Proyecto.Rows[0]["JUSTIFICACION"].ToString();
+                TA_Planteamiento.Text = DT_Proyecto.Rows[0]["PLANTEAMIENTO"].ToString();
+                TA_Impacto.Text = DT_Proyecto.Rows[0]["IMPACTO"].ToString();
+                TA_Resultados.Text = DT_Proyecto.Rows[0]["RESULTADOS"].ToString();
+                TA_General.Text = DT_Proyecto.Rows[0]["GENERAL"].ToString();
+                TA_Especificos.Text = DT_Proyecto.Rows[0]["ESPECIFICOS"].ToString();
+                Session["Evaluacion"] = DT_Proyecto.Rows[0]["EVALUACION"].ToString();
+
+
+
+ declare nombreUsuario varchar(60);
+ declare idUsuario int;
+ declare tipoUsuario int;
+ declare grupo varchar(60);
+ declare foto varchar(60);
+ declare pertenece varchar(60);
+ declare id_pertenece int;
+  declare programa varchar(60);
+ 
+  declare email varchar(60);
+
+ 
+ 
+select 
+	usu.id_usuario into idUsuario
+	
+from usuario usu
+where usu.email_usuario=email_usuari 
+and usu.contra_usuario=contra;
+ 
+
+select "bueeeeena perro" as mensaje,
+	idUsuario as usuari,
+	nombreUsuario as nombreeee,
+	email as correo,
+	foto as foto_perfil,
+	id_pertenece as id_grupo,
+	pertenece as su_grupo,
+	grupo as es,
+	tipoUsuario as tipo_user,
+	programa as pro
+	;

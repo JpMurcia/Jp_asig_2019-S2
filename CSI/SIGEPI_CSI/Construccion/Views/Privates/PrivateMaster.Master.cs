@@ -43,14 +43,17 @@ namespace Construccion.Views.Privates
                         else if (Session["rol"].ToString().ToString().Equals("10"))
                         {
 
-                            if (DT_Persona.Rows[0]["Mensaje"].ToString().Equals("SI"))
+                            if (DT_Persona.Rows[0]["Mensaje"].ToString().Equals("si"))
                             {
                                 Pnl_Proyectos.Visible = Btn_Evaluar_Proyectos.Visible = true;
 
                             }
                             else {
 
-                                X.Msg.Alert("Retricion", "Aun NO esta vinculado con ningu proyecto").Show();
+                                X.Msg.Alert("Retricion", "Aun NO esta vinculado con ningun proyecto").Show();
+                                Session["Usuario"] = null;
+                                Session.Clear();
+                                X.Redirect("~/Views/Publics/Login.aspx");
 
                             }
 
