@@ -95,10 +95,10 @@ CREATE TABLE IF NOT EXISTS `pe_evaluacion` (
 -- Volcando datos para la tabla chaira_sigepi.pe_evaluacion: ~4 rows (aproximadamente)
 /*!40000 ALTER TABLE `pe_evaluacion` DISABLE KEYS */;
 REPLACE INTO `pe_evaluacion` (`ID_EVALUACION`, `EVA_OBSERVACIONES`, `ID_PE_PROYECTO`, `EVA_PUNTAJE_TOTAL`, `ID_PE_PERSONA`, `EVA_FECHA`, `EVA_ESTADO`) VALUES
-	(1, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 1, 75, 11, '2020-04-17 16:43:57', '0'),
+	(1, 'observacion 1gfgfg', 1, 75, 11, '2020-03-02 00:45:43', '1'),
 	(2, 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo', 2, 80, 12, '2020-04-23 16:44:36', '0'),
-	(3, 'But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. ', 3, 65, 11, '2020-03-25 16:45:06', '0'),
-	(4, NULL, 3, NULL, 13, '2020-02-29 15:29:18', '0');
+	(3, 'But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. ', 3, 65, 11, '2020-03-25 16:45:06', '1'),
+	(4, 'algo', 3, NULL, 13, '2020-03-02 00:52:29', '1');
 /*!40000 ALTER TABLE `pe_evaluacion` ENABLE KEYS */;
 
 -- Volcando estructura para tabla chaira_sigepi.pe_evaluacion_item
@@ -119,17 +119,32 @@ CREATE TABLE IF NOT EXISTS `pe_evaluacion_item` (
 -- Volcando datos para la tabla chaira_sigepi.pe_evaluacion_item: ~4 rows (aproximadamente)
 /*!40000 ALTER TABLE `pe_evaluacion_item` DISABLE KEYS */;
 REPLACE INTO `pe_evaluacion_item` (`ID_EVALUACION_ITEM`, `EVIT_PUNTAJE`, `ID_PE_EVALUACION`, `ID_PE_ITEM`, `EVIT_FECHA_CALIFICACION`) VALUES
-	(1, 5, 1, 1, '2020-02-28 16:46:07'),
+	(1, 10, 1, 1, '2020-03-02 00:45:43'),
 	(2, 5, 2, 2, '2020-02-28 16:46:47'),
 	(3, 2, 3, 3, '2020-02-28 16:47:10'),
 	(4, 3, 3, 5, '2020-02-28 16:49:32'),
-	(5, 5, 1, 2, NULL),
-	(6, 5, 1, 3, '2020-03-01 20:56:32'),
-	(7, 10, 1, 4, '2020-03-01 22:01:22'),
-	(8, 12, 1, 5, '2020-03-01 22:11:22'),
-	(9, 0, 1, 6, NULL),
-	(10, 0, 1, 8, NULL),
-	(11, 0, 2, 1, NULL);
+	(5, 1, 1, 2, '2020-03-02 00:45:43'),
+	(6, 10, 1, 3, '2020-03-02 00:45:43'),
+	(7, 1, 1, 4, '2020-03-02 00:45:43'),
+	(8, 10, 1, 5, '2020-03-02 00:45:43'),
+	(9, 0, 1, 6, '2020-03-02 00:45:43'),
+	(10, 0, 1, 61, '2020-03-01 23:54:24'),
+	(11, 0, 2, 1, '2020-03-01 23:54:25'),
+	(12, 0, 2, 3, NULL),
+	(13, 0, 2, 4, NULL),
+	(14, 0, 2, 5, NULL),
+	(15, 0, 2, 6, NULL),
+	(16, 0, 3, 1, '2020-03-01 23:59:27'),
+	(17, 0, 3, 2, NULL),
+	(18, 0, 3, 4, NULL),
+	(19, 0, 3, 6, NULL),
+	(20, 5, 4, 1, '2020-03-02 00:52:29'),
+	(21, 1, 4, 2, '2020-03-02 00:52:29'),
+	(22, 0, 4, 3, '2020-03-02 00:52:29'),
+	(23, 0, 4, 4, '2020-03-02 00:52:29'),
+	(24, 10, 4, 5, '2020-03-02 00:52:29'),
+	(25, 10, 4, 6, '2020-03-02 00:52:29'),
+	(26, 0, 4, 7, '2020-03-02 00:50:54');
 /*!40000 ALTER TABLE `pe_evaluacion_item` ENABLE KEYS */;
 
 -- Volcando estructura para tabla chaira_sigepi.pe_facultad
@@ -186,9 +201,9 @@ REPLACE INTO `pe_item` (`ID_ITEM`, `ITE_NOMBRE`) VALUES
 	(2, 'Justificación'),
 	(3, 'Objetivos'),
 	(4, ' Metodología'),
-	(5, 'Impacto y pertinencia social'),
+	(5, 'Número de integrantes'),
 	(6, 'Resultados esperados'),
-	(8, 'Número de integrantes'),
+	(7, 'Impacto y pertinencia social'),
 	(61, 'Cronograma');
 /*!40000 ALTER TABLE `pe_item` ENABLE KEYS */;
 
@@ -880,17 +895,40 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `insert_par_evaluador`(
 	IN `id_proyec` INT,
 	IN `id_par` INT
 
+
+
 )
 BEGIN
 
 declare num int;
+declare num2 int;
 
 SET num =(select IFNULL(MAX(pe_evaluacion.ID_EVALUACION),0) FROM pe_evaluacion);
 
 
 INSERT INTO pe_evaluacion()VALUES(num+1,null,id_proyec,null,id_par,NOW(),"0");
 
+
+
+SET num2 =(select IFNULL(MAX(pe_evaluacion_item.ID_EVALUACION_ITEM),0) FROM pe_evaluacion_item);
+
+
+INSERT INTO pe_evaluacion_item()
+VALUES(num2+1,0,num+1,1,NOW()),
+(num2+2,0,num+1,2,NOW()),
+(num2+3,0,num+1,3,NOW()),
+(num2+4,0,num+1,4,NOW()),
+(num2+5,0,num+1,5,NOW()),
+(num2+6,0,num+1,6,NOW()),
+(num2+7,0,num+1,7,NOW());
+
+
+
+
+
 SELECT "3" TIPO, "Lo lamento perro" MENSAJE FROM pe_evaluacion;
+
+
 
 
 
@@ -964,6 +1002,64 @@ SELECT COUNT(proye_per.ID_PROYECTO_PERSONA ) AS cant FROM pe_rol rol
  INNER JOIN pe_tipo_vinculacion vincu ON vincu.ID_TIPO_VINCULACION=proye_per.ID_PE_TIPO_VINCULACION
  INNER JOIN pe_proyecto proyec ON proyec.ID_PROYECTO = proye_per.ID_PE_PROYECTO
  WHERE vincu.ID_TIPO_VINCULACION=4;
+END//
+DELIMITER ;
+
+-- Volcando estructura para procedimiento chaira_sigepi.UPDA_EVALUACION
+DROP PROCEDURE IF EXISTS `UPDA_EVALUACION`;
+DELIMITER //
+CREATE DEFINER=`root`@`localhost` PROCEDURE `UPDA_EVALUACION`(
+	IN `EVALUACION` INT,
+	IN `PLANTEAMIENTO` INT,
+	IN `JUSTIFICACION` INT,
+	IN `OBJETIVOS` INT,
+	IN `METODOLOGIA` INT,
+	IN `IMPACTO` INT,
+	IN `RESULTADOS` INT,
+	IN `OBSERVACIONES` VARCHAR(550)
+
+)
+BEGIN
+
+
+	UPDATE pe_evaluacion_item SET pe_evaluacion_item.EVIT_PUNTAJE=PLANTEAMIENTO ,
+	 pe_evaluacion_item.EVIT_FECHA_CALIFICACION=NOW()
+	WHERE pe_evaluacion_item.ID_PE_ITEM=1 and pe_evaluacion_item.ID_PE_EVALUACION=EVALUACION;
+	
+	
+		UPDATE pe_evaluacion_item SET pe_evaluacion_item.EVIT_PUNTAJE=JUSTIFICACION ,
+	 pe_evaluacion_item.EVIT_FECHA_CALIFICACION=NOW()
+	WHERE pe_evaluacion_item.ID_PE_ITEM=2 and pe_evaluacion_item.ID_PE_EVALUACION=EVALUACION;
+	
+
+		UPDATE pe_evaluacion_item SET pe_evaluacion_item.EVIT_PUNTAJE=OBJETIVOS ,
+	 pe_evaluacion_item.EVIT_FECHA_CALIFICACION=NOW()
+	WHERE pe_evaluacion_item.ID_PE_ITEM=3 and pe_evaluacion_item.ID_PE_EVALUACION=EVALUACION;
+	
+	
+		UPDATE pe_evaluacion_item SET pe_evaluacion_item.EVIT_PUNTAJE=METODOLOGIA ,
+	 pe_evaluacion_item.EVIT_FECHA_CALIFICACION=NOW()
+	WHERE pe_evaluacion_item.ID_PE_ITEM=4 and pe_evaluacion_item.ID_PE_EVALUACION=EVALUACION;
+	
+	
+		UPDATE pe_evaluacion_item SET pe_evaluacion_item.EVIT_PUNTAJE=IMPACTO ,
+	 pe_evaluacion_item.EVIT_FECHA_CALIFICACION=NOW()
+	WHERE pe_evaluacion_item.ID_PE_ITEM=5 and pe_evaluacion_item.ID_PE_EVALUACION=EVALUACION;
+
+
+
+		UPDATE pe_evaluacion_item SET pe_evaluacion_item.EVIT_PUNTAJE=RESULTADOS ,
+	 pe_evaluacion_item.EVIT_FECHA_CALIFICACION=NOW()
+	WHERE pe_evaluacion_item.ID_PE_ITEM=6 and pe_evaluacion_item.ID_PE_EVALUACION=EVALUACION;
+	
+	
+		UPDATE pe_evaluacion SET pe_evaluacion.EVA_OBSERVACIONES=OBSERVACIONES ,
+	 pe_evaluacion.EVA_FECHA=NOW(),
+	 pe_evaluacion.EVA_ESTADO=1
+	WHERE pe_evaluacion.ID_EVALUACION=EVALUACION;
+	select " Guardado" Mensaje , "3" TIPO;
+
+
 END//
 DELIMITER ;
 

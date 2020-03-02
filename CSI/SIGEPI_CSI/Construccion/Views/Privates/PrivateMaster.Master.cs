@@ -64,7 +64,7 @@ namespace Construccion.Views.Privates
                         }
                         else if (Session["rol"].ToString().Equals("9"))
                         {
-                            Btn_Proyectos_Usuario.Visible = Pnl_Proyectos.Visible =  Btn_Evaluar_Proyectos.Visible = Btn_Ver_Proyectos.Visible
+                           Pnl_Proyectos.Visible =  Btn_Evaluar_Proyectos.Visible = Btn_Ver_Proyectos.Visible
                                 = Btn_Asignar_Evaluadores.Visible = Btn_Ver_Evaluaciones.Visible  = true;
                         }
                     }

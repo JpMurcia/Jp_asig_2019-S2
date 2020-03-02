@@ -9,7 +9,7 @@
             <div style="padding: 20px; text-align: center;">
                 <img src='<%=Page.ResolveUrl("~/Views/Publics/Content/Images/logoudla.png") %>' width="100" />
                 <div style="display: inline-block; text-align: center;">
-                    <h2>PRESENTACIÓN Y EVALUACIÓN DE PROYECTOS DE EXTENSIÓN Y/O PROYECCIÓN SOCIAL</h2>
+                    <h2>SITEMA PARA LA GESTIO DE LOS PROYECTOS DE INVESTIGACION</h2>
                     <h2>Bienvenido/a</h2>
                 </div>
             </div>

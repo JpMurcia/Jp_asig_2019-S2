@@ -6,8 +6,8 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <meta name="description" content="Presentacion y evaluacion de proyectos de extension y proyeccion social - UDLA" />
-    <meta name="keywords" lang="es" content="proyectos, extension, proyeccion, social, udla, uniamazonia, universidad de la amazonia, pepeps" />
+    <meta name="description" content="Sistema para la Gestión de los Proyectos de Investigación" />
+    <meta name="keywords" lang="es" content="Sistema para la Gestión de los Proyectos de Investigación, SIGEPI" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Iniciar sesión</title>
     <style type="text/css">
@@ -37,7 +37,7 @@
             <div id="header" style="padding: 20px; text-align: center;">
                 <img src='<%=Page.ResolveUrl("~/Views/Publics/Content/Images/logoudla.png")%>' width="80" />
                 <div style="display: inline-block; text-align: center;">
-                    <h2>PRESENTACIÓN DE PROYECTOS DE EXTENSIÓN Y/O PROYECCIÓN SOCIAL</h2>
+                    <h2>SITEMA PARA LA GESTIO DE LOS PROYECTOS DE INVESTIGACION</h2>
                     <h2>INICIAR SESIÓN</h2>
                 </div>
             </div>
