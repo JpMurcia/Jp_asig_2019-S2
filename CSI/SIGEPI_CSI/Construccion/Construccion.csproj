@@ -183,8 +183,6 @@
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
     <Content Include="ViewSwitcher.ascx" />
-    <Content Include="Views\Login\Default.aspx" />
-    <Content Include="Views\Login\Default1.aspx" />
     <Content Include="Views\Privates\Inicio.aspx" />
     <Content Include="Views\Privates\Proyectos\AsignarEvaluador.aspx" />
     <Content Include="Views\Privates\Proyectos\EvaluarProyecto.aspx" />
@@ -253,10 +251,6 @@
     </Compile>
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Login\Default1.aspx.cs">
-      <DependentUpon>Default1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Views\Privates\Inicio.aspx.cs">
       <DependentUpon>Inicio.aspx</DependentUpon>
