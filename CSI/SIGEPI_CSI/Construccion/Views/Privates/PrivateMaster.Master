@@ -189,13 +189,13 @@
                         </ext:Panel>
                     </Items>
                     <Buttons>
-                        <ext:Button
+                    <%--    <ext:Button
                             Text="Opciones de Usuario"
                             runat="server"
                             Icon="User"
                             UI="Primary"
                             Href="~/Views/Privates/Usuarios/DatosUsuario.aspx"
-                            HrefTarget="_top" />
+                            HrefTarget="_top" />--%>
                         <ext:Button
                             Text="Cerrar Sesión"
                             runat="server"

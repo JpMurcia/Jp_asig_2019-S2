@@ -165,6 +165,39 @@ namespace Construccion.Models.Modelos_chaira
         }
 
 
+        public DataTable ConsultarEvaluaciones()
+        {
+            return conect.ExecuteProcedure("consul_Evaluaciones",  null);
+        }
+
+        public DataTable ConsultarEvaluacionesReport()
+        {
+            return conect.ExecuteProcedure("consul_Evaluaciones_Detalle",  null);
+        }
+
+
+        public DataTable ConsultarPuntajeItemsEvaluador(string evaluacion, string correo)
+        {
+            List<Parametro> P = new List<Parametro>();
+            P.Add(new Parametro("EVALUACION", evaluacion, "NUMBER", ParameterDirection.Input));
+            P.Add(new Parametro("CORREO", correo, "VARCHAR2", ParameterDirection.Input));
+            return conect.ExecuteProcedure("consul_Evaluaciones_Detalle", P);
+        }
+
+        public DataTable ConsultarPuntajeItems(string evaluacion)
+        {
+            List<Parametro> P = new List<Parametro>();
+            P.Add(new Parametro("EVALUACION", evaluacion, "NUMBER", ParameterDirection.Input));
+            return conect.ExecuteProcedure("consul_Evaluaciones_Detalle", P);
+        }
+
+        public DataTable ConsultarEvaluacionId(string evaluacion)
+        {
+            List<Parametro> P = new List<Parametro>();
+            P.Add(new Parametro("EVALUACION", evaluacion, "NUMBER", ParameterDirection.Input));
+            return conect.ExecuteProcedure("consul_Evaluacion_Detallada", P);
+        }
+
     }
 }
 

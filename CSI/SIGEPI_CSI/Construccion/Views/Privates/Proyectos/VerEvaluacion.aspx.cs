@@ -4,16 +4,18 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using PEPEPS.Models;
+
 using System.Data;
 using Ext.Net;
+using Construccion.Models.Modelos_chaira;
 
-namespace PEPEPS.Views.Privates.Proyectos
+namespace Construccion.Views.Privates.Proyectos
 {
     public partial class VerEvaluacion : System.Web.UI.Page
     {
-        PE_PROYECTO Mdl_Proyecto = new PE_PROYECTO();
+        
         DataTable DT_Proyecto;
+        PROYECTO Mdl_Proyecto = new PROYECTO();
 
         protected void Page_Load(object sender, EventArgs e)
         {

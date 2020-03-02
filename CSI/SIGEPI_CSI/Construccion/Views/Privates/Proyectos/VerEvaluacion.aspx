@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Evaluación" Language="C#" MasterPageFile="~/Views/Privates/PrivateMaster.Master" AutoEventWireup="true" CodeBehind="VerEvaluacion.aspx.cs" Inherits="PEPEPS.Views.Privates.Proyectos.VerEvaluacion" %>
+﻿<%@ Page Title="Evaluación" Language="C#" MasterPageFile="~/Views/Privates/PrivateMaster.Master" AutoEventWireup="true" CodeBehind="VerEvaluacion.aspx.cs" Inherits="Construccion.Views.Privates.Proyectos.VerEvaluacion" %>
 
 <%@ Import Namespace="Ext.Net.Utilities" %>
 
