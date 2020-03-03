@@ -195,7 +195,7 @@ namespace Construccion.Models.Modelos_chaira
         {
             List<Parametro> P = new List<Parametro>();
             P.Add(new Parametro("EVALUACION", evaluacion, "NUMBER", ParameterDirection.Input));
-            return conect.ExecuteProcedure("consul_Evaluacion_Detallada", P);
+            return conect.ExecuteProcedure("consul_Evaluaciones_Detalle", P);
         }
 
     }
